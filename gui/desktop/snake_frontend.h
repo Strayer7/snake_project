@@ -2,11 +2,11 @@
 #ifndef SNAKE_FRONTEND_H
 #define SNAKE_FRONTEND_H
 
-#include <QApplication>
-#include <QWidget>
-#include <QPainter>
-#include <QTimer>
-#include <QKeyEvent>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QWidget>
+#include <QtGui/QPainter>
+#include <QtCore/QTimer>
+#include <QtGui/QKeyEvent>
 #include "../../common.h"
 
 #define WINDOW_WIDTH  600

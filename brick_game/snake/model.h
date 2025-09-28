@@ -10,8 +10,6 @@
 
 #define SNAKE_START_POINT_X 5
 #define SNAKE_START_POINT_Y 12
-#define WIDTH 10
-#define HEIGHT 20
 
 struct Coords {
     int x;

@@ -1,9 +1,10 @@
 #ifndef TETRIS_FRONTEND_H
 #define TETRIS_FRONTEND_H
 
-#include <QWidget>
-#include <QTimer>
-#include <QKeyEvent>
+#include <QtWidgets/QWidget>
+#include <QtCore/QTimer>
+#include <QtGui/QKeyEvent>
+#include <QtGui/QPainter>
 #include "../../common.h"
 
 #define TETRIS_WINDOW_WIDTH  600

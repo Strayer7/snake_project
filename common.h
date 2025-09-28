@@ -23,6 +23,13 @@ typedef enum {
   Action
 } UserAction_t;
 
+typedef enum {
+  STATE_START,
+  STATE_PLAY,
+  STATE_PAUSE,
+  STATE_GAME_OVER
+} Game_state;
+
 typedef struct {
   int x;
   int y;
