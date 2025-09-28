@@ -4,31 +4,54 @@
 #include "../../brick_game/snake/model.h"
 
 void draw_game(const GameInfo_t& info) {
-    clear(); // очищаем экран ncurses
+    // размеры окон
+    int field_width  = WIDTH * 2 + 2;   // ×2 для символов + рамка
+    int field_height = HEIGHT + 2;      // + рамка
+    int panel_width  = 20;
+    int panel_height = field_height;
 
-    // Игровое поле
+    // создаём окна
+    WINDOW* field_win = newwin(field_height, field_width, 0, 0);
+    WINDOW* info_win  = newwin(panel_height, panel_width, 0, field_width + 1);
+
+    // === 1. Игровое поле ===
+    werase(field_win);
+    box(field_win, 0, 0);
+    mvwprintw(field_win, 0, field_width / 2 - 3, "SNAKE");
+
     for (int y = 0; y < HEIGHT; ++y) {
         for (int x = 0; x < WIDTH; ++x) {
             int value = info.field[y][x];
-            if (value == 0) {
-                mvprintw(y, x * 2, "  ");      // пусто
-            } else if (value == 1) {
-                mvprintw(y, x * 2, "oo");      // тело
+            if (value == 1) {
+                mvwprintw(field_win, y + 1, x * 2 + 1, "oo"); // тело
             } else if (value == 2) {
-                mvprintw(y, x * 2, "OO");      // голова
+                mvwprintw(field_win, y + 1, x * 2 + 1, "OO"); // голова
             } else if (value == 3) {
-                mvprintw(y, x * 2, "[]");      // яблоко
+                mvwprintw(field_win, y + 1, x * 2 + 1, "[]"); // яблоко
             }
         }
     }
 
-    // Панель с информацией
-    int info_y = HEIGHT + 1;
-    mvprintw(info_y, 0, "Score: %d   High: %d", info.score, info.high_score);
-    mvprintw(info_y + 1, 0, "Level: %d   Speed: %dms", info.level, info.speed);
-    mvprintw(info_y + 2, 0, "Controls: WASD / Arrows, P=Pause, Enter=Start, Esc=Quit, Space=Boost");
+    wrefresh(field_win);
 
-    refresh(); // обновляем экран
+    // === 2. Панель с информацией ===
+    werase(info_win);
+    box(info_win, 0, 0);
+    mvwprintw(info_win, 0, 4, "GAME INFO");
+    mvwprintw(info_win, 2, 1, "High score:");
+    mvwprintw(info_win, 3, 1, "%d", info.high_score);
+    mvwprintw(info_win, 5, 1, "Score:");
+    mvwprintw(info_win, 6, 1, "%d", info.score);
+    mvwprintw(info_win, 8, 1, "Level:");
+    mvwprintw(info_win, 9, 1, "%d", info.level);
+    mvwprintw(info_win, 11, 1, "Speed:");
+    mvwprintw(info_win, 12, 1, "%d ms", info.speed);
+    mvwprintw(info_win, 14, 1, "Pause: %s", info.pause ? "ON" : "OFF");
+
+    wrefresh(info_win);
+
+    delwin(field_win);
+    delwin(info_win);
 }
 
 void handle_input() {
@@ -45,8 +68,14 @@ void handle_input() {
         case 'p': case 'P': userInput(Pause, false); break;
         case 10:            userInput(Start, false); break;   // Enter
         case 27:            userInput(Terminate, false); break; // Esc
-        case ' ':           userInput(Action, true); break;  // Boost
+        case ' ':           userInput(Action, true); break;  // Boost press
         default: break;
+    }
+
+    // проверяем отпускание пробела
+    if (!(ch == ' ')) {
+        // если пробел не зажат — сброс
+        userInput(Action, false);
     }
 }
 
@@ -79,7 +108,12 @@ void run_snake_console() {
             }
         }
 
-        usleep(info.speed * 1000); // задержка в мс → мкс
+        // --- Задержка с учётом буста ---
+        int current_speed = info.speed;
+        if (get_game_model().is_speed_boost_active()) {
+            current_speed = std::max(50, info.speed / 2); // или info.speed / 1.5
+        }
+        usleep(current_speed * 1000); // только одна задержка
     }
 
     endwin(); // выход из ncurses

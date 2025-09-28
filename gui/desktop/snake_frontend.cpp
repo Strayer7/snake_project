@@ -83,8 +83,6 @@ void game_field::paintEvent(QPaintEvent *) {
     Game_state state = get_game_model().get_state();             // Текущее состояние игры
 
     const int cell_size = 40;
-    const int field_width = WIDTH * cell_size;   // 400
-    const int field_height = HEIGHT * cell_size; // 800
 
     // === 1. Рисуем игровое поле (слева) ===
     if (info.field != nullptr) {
@@ -142,7 +140,7 @@ void game_field::paintEvent(QPaintEvent *) {
     }
 
     // === 2. UI-панель (справа: 200px) ===
-    int panel_x = field_width;
+    int panel_x = WIDTH * cell_size;
     int panel_width = WINDOW_WIDTH - panel_x;  // 200
     QRect panel_rect(panel_x, 0, panel_width, WINDOW_HEIGHT);
 
