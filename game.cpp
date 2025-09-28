@@ -57,7 +57,7 @@ void run_tetris_console() {
         wrefresh(next_win);
         wrefresh(info_win);
 
-        usleep(info.speed * 1000);
+        usleep(100000);
     }
 
     mvprintw(HEIGHT / 2, WIDTH, "GAME OVER! Press any key...");

@@ -27,6 +27,7 @@ void save_high_score(int score);
 bool is_game_paused(void);
 bool is_game_over();
 void destroy_game_state(void);
+void reset_game_state(void);
 
 GameInfo_t updateCurrentState();
 

@@ -12,7 +12,7 @@ tetris_field::tetris_field(QWidget* parent)
 
     timer_ = new QTimer(this);
     connect(timer_, &QTimer::timeout, this, &tetris_field::update_paint);
-    timer_->start(300); // обновление каждые 300 мс (будет динамически меняться)
+    timer_->start(100); // обновление каждые 300 мс (будет динамически меняться)
 }
 
 void tetris_field::keyPressEvent(QKeyEvent *event) {
@@ -32,13 +32,7 @@ void tetris_field::keyPressEvent(QKeyEvent *event) {
 }
 
 void tetris_field::update_paint() {
-    GameInfo_t info = updateCurrentState();
-
-    // обновляем частоту таймера под уровень
-    if (timer_->interval() != info.speed) {
-        timer_->setInterval(info.speed);
-    }
-
+    updateCurrentState();
     repaint();
 }
 
@@ -52,6 +46,24 @@ void tetris_field::paintEvent(QPaintEvent *) {
     const int field_width = WIDTH * cell_size;
     const int field_height = HEIGHT * cell_size;
 
+    Figure* fig = get_current_figure();
+if (fig != nullptr) {
+    for (int i = 0; i < FIGURE_SIZE; ++i) {
+        for (int j = 0; j < FIGURE_SIZE; ++j) {
+            if (fig->shape[i][j]) {
+                int x = fig->x + j;
+                int y = fig->y + i;
+                if (y >= 0 && y < HEIGHT && x >= 0 && x < WIDTH) {
+                    QRect cellRect(x * cell_size, y * cell_size, cell_size, cell_size);
+                    p.fillRect(cellRect, QBrush(Qt::cyan));
+                    p.setPen(Qt::darkGray);
+                    p.drawRect(cellRect);
+                }
+            }
+        }
+    }
+}
+    
     // === Игровое поле ===
     if (info.field != nullptr) {
         for (int y = 0; y < HEIGHT; ++y) {
