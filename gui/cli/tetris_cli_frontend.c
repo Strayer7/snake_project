@@ -1,9 +1,9 @@
-#ifndef FRONTEND_C
-#define FRONTEND_C
+#ifndef TETRIS_CLI_FRONTEND_C
+#define TETRIS_CLI_FRONTEND_C
 
-#include "frontend.h"
+#include "tetris_cli_frontend.h"
 
-#include "../../brick_game/tetris/backend.h"
+#include "../../brick_game/tetris/tetris_backend.h"
 
 void init_ncurses() {
   initscr();

@@ -1,19 +1,14 @@
 #include <iostream>
 
 // ===== Snake (Qt + ncurses) =====
-#include "frontend.h"          // Snake desktop (Qt)
-#include "snake_console.cpp"   // Snake console (ncurses)
+#include "gui/desktop/snake_frontend.h"  // Snake desktop (Qt)
+#include "gui/cli/snake_console.cpp"     // Snake console (ncurses)
 
 // ===== Tetris (Qt + ncurses) =====
-#include "tetris_frontend.h"   // Tetris desktop (Qt)
-#include "frontend.h"          // Tetris console (ncurses UI)
+#include "gui/desktop/tetris_frontend.h" // Tetris desktop (Qt)
+#include "gui/cli/tetris_cli_frontend.h" // Tetris console (ncurses UI)
 extern "C" {
-    #include "backend.h"       // Tetris backend (логика)
-}
-
-// ==== Snake Console ====
-void run_snake_console() {
-    run_snake_console(); // реализовано в snake_console.cpp
+    #include "brick_game/tetris/tetris_backend.h"  // Tetris backend (логика)
 }
 
 // ==== Tetris Console ====

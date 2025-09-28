@@ -1,5 +1,5 @@
-#ifndef FRONTEND_H
-#define FRONTEND_H
+#ifndef TETRIS_CLI_FRONTEND_H
+#define TETRIS_CLI_FRONTEND_H
 
 #include <ncurses.h>
 #include <unistd.h>

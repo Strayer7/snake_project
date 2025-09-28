@@ -1,7 +1,7 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "../common.h"
+#include "../../common.h"
 #include <vector>
 #include <random>
 #include <fstream>

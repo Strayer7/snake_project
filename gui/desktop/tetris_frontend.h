@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QTimer>
 #include <QKeyEvent>
-#include "../common.h"
+#include "../../common.h"
 
 #define TETRIS_WINDOW_WIDTH  600
 #define TETRIS_WINDOW_HEIGHT 800

@@ -1,5 +1,5 @@
-#ifndef BACKEND_H
-#define BACKEND_H
+#ifndef TETRIS_BACKEND_H
+#define TETRIS_BACKEND_H
 
 #include <stdbool.h>
 #include <time.h>

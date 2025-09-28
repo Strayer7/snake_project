@@ -1,7 +1,7 @@
-#ifndef BACKEND_C
-#define BACKEND_C
+#ifndef TETRIS_BACKEND_C
+#define TETRIS_BACKEND_C
 
-#include "backend.h"
+#include "tetris_backend.h"
 
 #include "figures.h"
 

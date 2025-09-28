@@ -1,5 +1,5 @@
 #include "tetris_frontend.h"
-#include "../back_tetris/backend.h"   // твой backend.c/.h
+#include "../../brick_game/tetris/tetris_backend.h"   // твой backend.c/.h
 
 tetris_field::tetris_field(QWidget* parent)
     : QWidget(parent)

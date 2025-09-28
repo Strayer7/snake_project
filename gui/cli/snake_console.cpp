@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include <unistd.h>     // usleep
-#include "back/controller.h"
-#include "back/model.h"
+#include "../../brick_game/snake/controller.h"
+#include "../../brick_game/snake/model.h"
 
 void draw_game(const GameInfo_t& info) {
     clear(); // очищаем экран ncurses

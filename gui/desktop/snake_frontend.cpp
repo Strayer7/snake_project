@@ -1,7 +1,7 @@
-// frontend.cpp
-#include "frontend.h"
-#include "../back/controller.h"  // ← Объявляет userInput, updateCurrentState, get_game_model
-#include "../back/model.h"      // ← Нужен, чтобы знать GameModel и get_game_model()
+// snake_frontend.cpp
+#include "snake_frontend.h"
+#include "../../brick_game/snake/controller.h"  // ← Объявляет userInput, updateCurrentState, get_game_model
+#include "../../brick_game/snake/model.h"      // ← Нужен, чтобы знать GameModel и get_game_model()
 
 game_field::game_field(QWidget* parent)
     : QWidget(parent)

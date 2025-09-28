@@ -2,7 +2,7 @@
 #ifndef GAME_CONTROLLER_H
 #define GAME_CONTROLLER_H
 
-#include "../common.h"
+#include "../../common.h"
 
 class GameModel;
 GameModel& get_game_model();

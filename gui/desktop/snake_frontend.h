@@ -1,13 +1,13 @@
-// frontend.h
-#ifndef FRONTEND_H
-#define FRONTEND_H
+// snake_frontend.h
+#ifndef SNAKE_FRONTEND_H
+#define SNAKE_FRONTEND_H
 
 #include <QApplication>
 #include <QWidget>
 #include <QPainter>
 #include <QTimer>
 #include <QKeyEvent>
-#include "../common.h"
+#include "../../common.h"
 
 #define WINDOW_WIDTH  600
 #define WINDOW_HEIGHT 800
