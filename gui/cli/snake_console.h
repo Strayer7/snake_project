@@ -4,6 +4,7 @@
 #include "../../common.h"
 
 // Функция для запуска консольной версии Snake
+namespace s21{
 void run_snake_console();
-
+}
 #endif // SNAKE_CONSOLE_H

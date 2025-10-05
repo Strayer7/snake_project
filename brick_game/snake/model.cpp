@@ -1,6 +1,5 @@
 #include "model.h"
-#include <QDebug>
-
+namespace s21{
 SnakeModel::SnakeModel() {
     body.push_back(Coords{SNAKE_START_POINT_X, SNAKE_START_POINT_Y});
     body.push_back(Coords{SNAKE_START_POINT_X, SNAKE_START_POINT_Y+1});
@@ -163,7 +162,6 @@ void GameModel::draw_apple_on_field() {
 }
 
 void GameModel::handle_user_input(UserAction_t action, bool hold) {
-    Q_UNUSED(hold)
 
     switch (action) {
         case Start:
@@ -355,4 +353,5 @@ void GameModel::save_high_score() {
 
 bool GameModel::is_speed_boost_active() const {
     return is_speed_boost_active_;
+}
 }

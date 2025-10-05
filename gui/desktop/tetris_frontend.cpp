@@ -3,6 +3,7 @@ extern "C" {
     #include "../../brick_game/tetris/tetris_backend.h"   // твой backend.c/.h
 }
 
+namespace s21{
 tetris_field::tetris_field(QWidget* parent)
     : QWidget(parent)
 {
@@ -115,4 +116,5 @@ if (fig != nullptr) {
         p.setFont(QFont("Arial", 24, QFont::Bold));
         p.drawText(QRect(0, 0, field_width, field_height), Qt::AlignCenter, "GAME OVER");
     }
+}
 }

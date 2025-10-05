@@ -11,7 +11,7 @@
 
 #define WINDOW_WIDTH  600
 #define WINDOW_HEIGHT 800
-
+namespace s21{
 class game_field : public QWidget
 {
     Q_OBJECT
@@ -30,5 +30,5 @@ private slots:
 private:
     QTimer *timer_;
 };
-
+}
 #endif // FRONTEND_H

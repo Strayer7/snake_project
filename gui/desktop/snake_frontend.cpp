@@ -2,7 +2,7 @@
 #include "snake_frontend.h"
 #include "../../brick_game/snake/controller.h"  // ← Объявляет userInput, updateCurrentState, get_game_model
 #include "../../brick_game/snake/model.h"      // ← Нужен, чтобы знать GameModel и get_game_model()
-
+namespace s21{
 game_field::game_field(QWidget* parent)
     : QWidget(parent)
 {
@@ -186,4 +186,5 @@ void game_field::paintEvent(QPaintEvent *) {
         p.setFont(QFont("Arial", 18));
         p.drawText(gameRect, Qt::AlignCenter, "PAUSED");
     }
+}
 }

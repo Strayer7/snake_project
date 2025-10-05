@@ -10,6 +10,7 @@
 #define TETRIS_WINDOW_WIDTH  600
 #define TETRIS_WINDOW_HEIGHT 800
 
+namespace s21{
 class tetris_field : public QWidget
 {
     Q_OBJECT
@@ -27,5 +28,5 @@ private slots:
 private:
     QTimer *timer_;
 };
-
+}
 #endif // TETRIS_FRONTEND_H

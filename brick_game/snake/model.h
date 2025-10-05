@@ -11,6 +11,7 @@
 #define SNAKE_START_POINT_X 5
 #define SNAKE_START_POINT_Y 12
 
+namespace s21{
 struct Coords {
     int x;
     int y;
@@ -79,4 +80,5 @@ private:
     int load_high_score();
 };
 
+}
 #endif

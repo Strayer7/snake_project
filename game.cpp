@@ -11,6 +11,7 @@ extern "C" {
     #include "brick_game/tetris/tetris_backend.h"  // Tetris backend (логика)
 }
 
+namespace s21{
 // ==== Tetris Console ====
 void run_tetris_console() {
     init_ncurses();
@@ -68,9 +69,11 @@ void run_tetris_console() {
     delwin(info_win);
     endwin();
 }
-
+}
 // ==== Main entry ====
 int main(int argc, char *argv[]) {
+    using namespace s21;
+    
     std::cout << "==== GAME PROJECT ====\n";
     std::cout << "1. Snake (Console)\n";
     std::cout << "2. Snake (Desktop)\n";

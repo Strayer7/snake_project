@@ -1,6 +1,6 @@
 #include "controller.h"
 #include "model.h"
-
+namespace s21{
 static GameModel* game_model = nullptr;
 
 GameModel& get_game_model() {
@@ -26,4 +26,5 @@ void cleanup_game_controller() {
         delete game_model;
         game_model = nullptr;
     }
+}
 }

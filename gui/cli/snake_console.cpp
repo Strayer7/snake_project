@@ -2,7 +2,7 @@
 #include <unistd.h>     // usleep
 #include "../../brick_game/snake/controller.h"
 #include "../../brick_game/snake/model.h"
-
+namespace s21{
 void draw_game(const GameInfo_t& info) {
     // размеры окон
     int field_width  = WIDTH * 2 + 2;   // ×2 для символов + рамка
@@ -117,4 +117,5 @@ void run_snake_console() {
     }
 
     endwin(); // выход из ncurses
+}
 }
