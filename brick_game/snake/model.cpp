@@ -349,7 +349,6 @@ void GameModel::save_high_score() {
         file.close();
     }
 }
-1
 
 bool GameModel::is_speed_boost_active() const {
     return is_speed_boost_active_;
